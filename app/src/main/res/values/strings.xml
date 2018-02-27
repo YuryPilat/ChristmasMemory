@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Christmas Memory Game</string>
+    <integer name="card_flip_duration_full">200</integer>
+    <integer name="card_flip_duration_half">100</integer>
+    <string name="prefsName">MainSettings</string>
+    <string name="level_one">Easy</string>
+    <string name="level_two">Medium</string>
+    <string name="level_three">Hard</string>
+    <string name="NumberOfMoves">Number of moves:</string>
+    <string name="DialogText">Exit to the Main Menu?</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    <string name="RewardText">Take your 200 Gifts! Merry Christmas!</string>
+    <string name="Icollected">I have collected </string>
+    <string name="Gifts"> Christmas gifts! Can you beat my record?</string>
+</resources>

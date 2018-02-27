@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cristmasmemorygame.ActivityGifts"
+    tools:layout_editor_absoluteY="25dp">
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fon_gifts"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/text_my_gifts"
+        android:layout_width="281dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:foregroundGravity="center"
+        android:src="@drawable/text_mygifts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_my_gifts">
+
+
+        <ImageView
+            android:id="@+id/gift_candy"
+            android:layout_width="42dp"
+            android:layout_height="55dp"
+            android:src="@drawable/emoji_1_3"
+            app:layout_constraintEnd_toStartOf="@+id/gift_sock"
+            tools:layout_editor_absoluteY="126dp" />
+
+        <ImageView
+            android:id="@+id/gift_sock"
+            android:layout_width="42dp"
+            android:layout_height="55dp"
+            android:src="@drawable/emoji_2_3"
+            app:layout_constraintEnd_toStartOf="@+id/gift_hat"
+            tools:layout_editor_absoluteY="142dp" />
+
+        <ImageView
+            android:id="@+id/gift_hat"
+            android:layout_width="42dp"
+            android:layout_height="55dp"
+            android:src="@drawable/emoji_3_3"
+            app:layout_constraintEnd_toStartOf="@+id/gift_tree"
+            tools:layout_editor_absoluteY="122dp" />
+
+        <ImageView
+            android:id="@+id/gift_tree"
+            android:layout_width="42dp"
+            android:layout_height="55dp"
+            android:src="@drawable/emoji_4_3"
+            app:layout_constraintEnd_toStartOf="@+id/gift_snowman"
+            tools:layout_editor_absoluteY="122dp" />
+
+        <ImageView
+            android:id="@+id/gift_snowman"
+            android:layout_width="42dp"
+            android:layout_height="55dp"
+            android:src="@drawable/emoji_5_3"
+            tools:layout_editor_absoluteX="313dp"
+            tools:layout_editor_absoluteY="122dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/laywithtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        android:weightSum="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/text_youcollected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You've collected"
+                android:textColor="#d50000"
+                android:textSize="32sp"
+                android:textAlignment="center" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/total_easy_gifts_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textColor="#26a69a"
+                android:textSize="16sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/total_easy_gifts_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Gifts at Easy level!"
+                android:textColor="#d50000"
+                android:textSize="24sp"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/total_medium_gifts_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="16sp"
+                android:textColor="#ffa726"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/total_medium_gifts_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Gifts at Medium level!"
+                android:textColor="#d50000"
+                android:textSize="24sp"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/total_hard_gifts_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="16sp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/total_hard_gifts_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Gifts at Hard level!"
+                android:textColor="#d50000"
+                android:textSize="24sp"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/total_gifts_number_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Gifts   "
+                android:textColor="#d50000"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/total_gifts_number_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textColor="#0288d1"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Get 200 FREE instant gifts!"
+        android:textColor="#d50000"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/laywithtext" />
+
+    <LinearLayout
+        android:id="@+id/layout_social"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_send"
+        app:layout_constraintVertical_bias="0.005">
+
+        <Button
+            android:id="@+id/btn_video_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="onSocialClick" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_instantgifts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Can your friends do better? Challenge them!"
+        android:textColor="#d50000"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_social"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/layout_videobutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_instantgifts"
+        app:layout_constraintVertical_bias="0.058">
+
+        <Button
+            android:id="@+id/btn_share_gifts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/christmasbutton"
+            android:gravity="center"
+            android:onClick="onSocialClick"
+            android:text="challenge!"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
