@@ -13,4 +13,5 @@
     <string name="RewardText">Take your 200 Gifts! Merry Christmas!</string>
     <string name="Icollected">I have collected </string>
     <string name="Gifts"> Christmas gifts! Can you beat my record?</string>
+    <string name="QuitGame">Quit game?</string>
 </resources>
