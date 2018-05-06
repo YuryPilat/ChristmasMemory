@@ -1,6 +1,5 @@
 package com.example.cristmasmemorygame;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -23,7 +22,6 @@ import com.luolc.emojirain.EmojiRainLayout;
 
 import java.util.Random;
 
-@SuppressLint("Registered")
 public class BaseLevel extends BaseActivity {
 
     private final String CURRENT_CARD = "CurrentCard";
@@ -47,12 +45,32 @@ public class BaseLevel extends BaseActivity {
     private ImageView deer;
     private int finish_level;
     private int current_scores;
+    private int card_amount;
+    private int[] backgrounds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        setContentView(Root.getInteger("LayoutToLoad", R.layout.activity_levels_6_cards));
 
+        arrayKeeper();
+        knowWhatLevelIs(Root.getInteger("LayoutToLoad", R.layout.activity_levels_6_cards));
+        shuffleArray(backgrounds);
+        String CARD_BACK = "CardBack";
+        Root.setInteger(CARD_BACK, backgrounds[0]);
+        Root.setInteger(CURRENT_CARD, 0);
+        Root.setInteger(OPENED_CARD, 1);
+        adsManager = new AdsManager(getApplicationContext(), AdsType.Banner);
+
+        prepareScreen();
+        setFallingPics();
+        setCardsBacks();
+        randomizeCards();
+        startScreen(0);
+    }
+
+    private void arrayKeeper() {
         pictures = new int[]{
                 R.layout.cards_boy,
                 R.layout.cards_candies,
@@ -77,7 +95,7 @@ public class BaseLevel extends BaseActivity {
                 R.layout.cards_umka
         };
 
-        int[] backgrounds = new int[]{
+        backgrounds = new int[]{
                 R.layout.fragment_card_back,
                 R.layout.fragment_card_back2,
                 R.layout.fragment_card_back3,
@@ -85,27 +103,94 @@ public class BaseLevel extends BaseActivity {
                 R.layout.fragment_card_back5,
         };
 
-
-        shuffleArray(backgrounds);
-        String CARD_BACK = "CardBack";
-        Root.setInteger(CARD_BACK, backgrounds[0]);
-        Root.setInteger(CURRENT_CARD, 0);
-        Root.setInteger(OPENED_CARD, 1);
-        adsManager = new AdsManager(getApplicationContext(), AdsType.Banner);
-
-        prepareScreen();
-        setFallingPics();
-        setCardsBacks();
-        randomizeCards();
-        startScreen(0);
+        all_cards = new int[]{
+                R.id.container1,
+                R.id.container2,
+                R.id.container3,
+                R.id.container4,
+                R.id.container5,
+                R.id.container6,
+                R.id.container7,
+                R.id.container8,
+                R.id.container9,
+                R.id.container10,
+                R.id.container11,
+                R.id.container12,
+                R.id.container13,
+                R.id.container14,
+                R.id.container15,
+                R.id.container16,
+                R.id.container17,
+                R.id.container18,
+                R.id.container19,
+                R.id.container20
+        };
     }
 
-    public void init(String scores, String levelNumber, int finishLevel, int[] allCards, int activityLayout) {
-        SCORES = scores;
-        LEVEL_NUMBER = levelNumber;
-        finish_level = finishLevel;
-        all_cards = allCards;
-        setContentView(activityLayout);
+    private void knowWhatLevelIs(int activityLayout) {
+       if (activityLayout == R.layout.activity_levels_6_cards) {
+           SCORES = "ScoresEasy";
+           LEVEL_NUMBER = "LevelNumber";
+           finish_level = 3;
+           card_amount = 6;
+           all_cards = new int[]{
+                   R.id.container1,
+                   R.id.container2,
+                   R.id.container3,
+                   R.id.container4,
+                   R.id.container5,
+                   R.id.container6,
+
+           };
+
+       } else if (activityLayout == R.layout.activity_levels_12_cards) {
+           SCORES = "ScoresMedium";
+           LEVEL_NUMBER = "MediumLevelNumber";
+           finish_level = 6;
+           card_amount = 12;
+           all_cards = new int[]{
+                   R.id.container1,
+                   R.id.container2,
+                   R.id.container3,
+                   R.id.container4,
+                   R.id.container5,
+                   R.id.container6,
+                   R.id.container7,
+                   R.id.container8,
+                   R.id.container9,
+                   R.id.container10,
+                   R.id.container11,
+                   R.id.container12
+           };
+
+       } else if (activityLayout == R.layout.activity_levels_20_card){
+           SCORES = "ScoresHard";
+           LEVEL_NUMBER = "HardLevelNumber";
+           finish_level = 10;
+           card_amount = 20;
+           all_cards = new int[]{
+                   R.id.container1,
+                   R.id.container2,
+                   R.id.container3,
+                   R.id.container4,
+                   R.id.container5,
+                   R.id.container6,
+                   R.id.container7,
+                   R.id.container8,
+                   R.id.container9,
+                   R.id.container10,
+                   R.id.container11,
+                   R.id.container12,
+                   R.id.container13,
+                   R.id.container14,
+                   R.id.container15,
+                   R.id.container16,
+                   R.id.container17,
+                   R.id.container18,
+                   R.id.container19,
+                   R.id.container20
+           };
+       }
     }
 
     private void animateBack(final int container) {
@@ -207,7 +292,8 @@ public class BaseLevel extends BaseActivity {
     }
 
     private void setCardsBacks() {
-        for (int all_card : all_cards) {
+        for (int i = 0; i < card_amount; i++) {
+            int all_card = all_cards[i];
             getFragmentManager()
                     .beginTransaction()
                     .add(all_card, new CardFrontFragment())

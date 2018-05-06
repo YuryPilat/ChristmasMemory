@@ -37,21 +37,22 @@ public class MainActivity extends BaseActivity {
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.easy:
-                    intent = new Intent(MainActivity.this, Levels6Cards.class);
-                    pushActivity(intent);
+                    Root.setInteger("LayoutToLoad", R.layout.activity_levels_6_cards);
                     break;
                 case R.id.medium:
-                    intent = new Intent(MainActivity.this, Levels12Cards.class);
-                    pushActivity(intent);
+                    Root.setInteger("LayoutToLoad", R.layout.activity_levels_12_cards);
                     break;
                 case R.id.hard:
-                    intent = new Intent(MainActivity.this, Levels20Card.class);
-                    pushActivity(intent);
+                    Root.setInteger("LayoutToLoad", R.layout.activity_levels_20_card);
                     break;
-                case R.id.gifts:
-                    intent = new Intent(MainActivity.this, ActivityGifts.class);
-                    pushActivity(intent);
-                    break;
+
+            }
+            if (view.getId() == R.id.gifts) {
+                intent = new Intent(MainActivity.this, ActivityGifts.class);
+                pushActivity(intent);
+            } else {
+                intent = new Intent(MainActivity.this, BaseLevel.class);
+                pushActivity(intent);
             }
         }
     };
@@ -64,20 +65,19 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.QuitGame);
-        builder.setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
+        AlertDialog.Builder quitDialog = new AlertDialog.Builder(this);
+        quitDialog.setMessage(R.string.QuitGame);
+        quitDialog.setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 finish();
             }
         });
-        builder.setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
+        quitDialog.setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-        AlertDialog alert = builder.create();
-        alert.show();
+       quitDialog.show();
     }
 }
